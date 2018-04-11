@@ -1,11 +1,12 @@
 Given("I am on the home page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit('/')
 end
 
 Given("I search for {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in 'search_form_input_homepage', with: string
+  click_on('search_button_homepage')
 end
 
-Then("I should see {string}") do |string|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I will hopefully see {string} in my search results") do |string|
+  expect(page).to have_content(string)
 end
